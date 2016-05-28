@@ -7,11 +7,11 @@ HTTP 缓存是现代各个浏览器广泛采用的规范，从而使得它在 we
 
 当浏览器为了下次更快的检索请求资源而将 web 资源的副本进行本地存储时， HTTP 缓存就产生了。当你的应用提供资源的时候，它可以在响应中附加缓存头指定需要的缓存行为。
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570279-782-imported-1443554749-55-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache0.jpg)
 
 当一个条目被完全缓存时，浏览器可以选择完全不去联系服务器，而仅仅使用它的缓存副本：
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570282-782-imported-1443554751-54-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache1.jpg)
 
 举个例子，一旦你应用里的 CSS 样式表被浏览器下载，在用户会话期间就不用再次下载。这个适用于很多资产类型像 javascript 文件，图片以及不频繁改变的动态内容。在这些例子中，对用户浏览器来说本地缓存这些文件的副本是很有好处的，无论什么时候资源被请求都可以使用这些副本。使用 HTTP 缓存头的应用可以控制缓存行为，缓解服务端负载。
 注意：考虑将用户端浏览器作为 HTTP 缓存头的主要客户是很直观的。然而，这些缓存头都可以被任何一个中间代理器以及存在于源服务器和用户端的缓存所得到和利用。
@@ -51,7 +51,7 @@ Expires: Mon, 25 Jun 2012 21:31:12 GMT
 
 进行条件请求时，浏览器会询问服务器是否有资源的更新副本。浏览器会发送一些它拥有的缓存资源信息，然后服务器决定是返回更新后的内容还是浏览器的当前副本就是最新的。在后者的情况下，服务器将会返回 304 状态码（没有改动）。
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570285-782-imported-1443554754-56-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache2.jpg)
 
 尽管条件请求确实在网络上调用了一个请求，但没有修改的资源导致了一个空的响应体－－节省了资源传输到客户端的成本。在没有获取该资源的情况下，后端服务能够经常确定一个资源的最后修改日期，这本身就节省了并非微不足道的处理时间。
 
@@ -91,23 +91,23 @@ If-None-Match: “15f0fff99ed5aae4edffdd6496d7131f"
 Tip:  一个使用多种多样缓存的简单应用的代码可以在 [on GitHub](https://github.com/neilmiddleton/http_caching_demo) 上找到，可以通过运行 http://http-caching-demo.herokuapp.com/ 看到。
 一个初始的请求 http://http-caching-demo.herokuapp.com/ 展示了该应用返回的默认头部组。（没有缓存指令）
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570286-782-imported-1443554755-49-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache3.jpg)
 
 通过添加 cached 查询参数， http://http-caching-demo.herokuapp.com/?cache=true ，该应用用 Cache-Control 和 Expires 头（这两个值未来都会被设为 30s）打开了缓存。
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570288-782-imported-1443554756-50-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache4.jpg)
 
 给请求添加 etag 参数， http://http-caching-demo.herokuapp.com/?etag=true ，导致这个简单的 app 要去指定 JSON 内容的 ETag 摘要。
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570289-782-imported-1443554757-51-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache5.jpg)
 
 在更深的检测中，基于 ETag 的条件请求正如所期待的那样执行。浏览器的初始请求可以在从服务器下载文件时被看到。
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570290-782-imported-1443554758-52-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache6.jpg)
 
 然而，在后续请求中你能够看到响应给浏览器的 ETag  检查，服务器返回了 304 HTTP 状态，这会导致浏览器使用它自己的缓存副本：
 
-![image](https://s3.amazonaws.com/heroku-devcenter-files/article-images/782-imported-1443570291-782-imported-1443554759-53-original.jpg)
+![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache7.jpg)
 
 使用案例
 
