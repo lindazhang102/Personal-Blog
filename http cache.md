@@ -109,9 +109,9 @@ Tip:  一个使用多种多样缓存的简单应用的代码可以在 [on GitHub
 
 ![image](https://github.com/lindazhang102/Personal-Blog/raw/master/image/cache7.jpg)
 
-使用案例
+### 使用案例
 
-静态资源
+##### 静态资源
 
 在正常使用情况下，任何一个开发者的出发点应该被当作侵略式缓存策略加到应用中不会发生改变的文件上。一般情况下，这些文件包括服务于该应用的静态文件，比如图片，CSS 文件和 Javascript 文件。典型地，当这些文件在每个页面上被重新请求时，费一点点吹灰之力页面性能就能大幅度提升。
 在这些例子中，你应该设置 Cache-Control 头，从发起请求的时间点算起，将 max-age 值设为一年。推荐  Expires 也被设置为类似的值。
