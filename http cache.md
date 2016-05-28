@@ -148,8 +148,8 @@ Cache-Control:no-cache, no-store
 
 Language/framework	 | Tutorials
 ---|---
-Ruby/Rails | 1、HTTP Caching in Ruby with Rails2、Using Rack::Cache with Memcached to provide an HTTP cache store
-Java | HTTP Header Caching in JAX-RS
+Ruby/Rails | * [HTTP Caching in Ruby with Rails](https://devcenter.heroku.com/articles/http-caching-ruby-rails)* [Using Rack::Cache with Memcached](https://devcenter.heroku.com/articles/rack-cache-memcached-rails31) to provide an HTTP cache store
+Java | [HTTP Header Caching in JAX-RS](https://devcenter.heroku.com/articles/jax-rs-http-caching)
 
 相关阅读：
 
